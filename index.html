@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Student.java : ">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Student.java</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/Alisunset/Student.java">View on GitHub</a>
+
+          <h1 id="project_title">Student.java</h1>
+          <h2 id="project_tagline"></h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/Alisunset/Student.java/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/Alisunset/Student.java/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>import java.util.Date;</p>
+
+<p>public class Student {
+    private String name;
+    private String surname;
+    private Date birth;</p>
+
+<pre><code>public Student(String name, String surname, Date birth) {
+    this.name = name;
+    this.surname = surname;
+    this.birth = birth;
+}
+public void show(){
+    System.out.println(getName() + " " + getSurname() + " : " + getBirth());
+}
+
+public String getName() {
+    return name;
+}
+
+public void setName(String name) {
+    this.name = name;
+}
+
+public String getSurname() {
+    return surname;
+}
+
+public void setSurname(String surname) {
+    this.surname = surname;
+}
+
+public Date getBirth() {
+    return birth;
+}
+
+public void setBirth(Date birth) {
+    this.birth = birth;
+}
+</code></pre>
+
+<p>}</p>
+
+<p>import javax.xml.crypto.Data;
+import java.util.Date;</p>
+
+<p>public class StudentList {
+    private Student[] list = new Student[100];
+    private int p = 0;</p>
+
+<pre><code>public void add(Student s) {
+    list[p++] = s;
+}
+
+public Student get(int n) {
+    return list[n];
+}
+
+public int find(String name, String idintif) {
+    if (idintif.equalsIgnoreCase("name")) {
+        for (int i = 0; i &lt; p; i++) {
+            if (list[i].getName().equalsIgnoreCase(name))
+                return i;
+        }
+    } else if (idintif.equalsIgnoreCase("surname")) {
+        for (int i = 0; i &lt; p; i++) {
+            if (list[i].getSurname().equalsIgnoreCase(name))
+                return i;
+        }
+    }
+    return -1;
+}
+
+public int find(Date birth){
+    for (int i = 0; i &lt; p; i++){
+        if (list[i].getBirth().equals(birth))
+            return i;
+    }
+    return -1;
+}
+
+public void delete(int n) {
+    if (n &gt;= 0 &amp;&amp; n &lt; p) {
+            for (int i = n; i &lt; p; i++) {
+                list[i] = list[++i];
+                i--;
+            }p--;
+        }
+    else return;
+
+}
+
+public void showAll(){
+    for(int i = 0; i &lt; p; i++)
+        list[i].show();
+}
+</code></pre>
+
+<p>}### 
+import java.util.Date;</p>
+
+<p>public class MyClass {</p>
+
+<pre><code>public static void main(String[] args) {
+    StudentList sl = new StudentList();
+
+    sl.add(new Student("A", "a", new Date(20, 3, 4)));
+    sl.add(new Student("B", "b", new Date(30, 6, 5)));
+    sl.add(new Student("C", "c", new Date(30, 4, 6)));
+    sl.add(new Student("D", "d", new Date(39, 4, 5)));
+    sl.add(new Student("E", "e", new Date(34, 4, 5)));
+    sl.add(new Student("F", "f", new Date(45, 5, 6)));
+    sl.showAll();
+    int n = sl.find(new Date(30, 6, 5));
+    System.out.println(n);
+    int k = sl.find("A", "name");
+    System.out.println(k);
+    int i = sl.find("c", "surname");
+    System.out.println(i);
+    sl.delete(0);
+    sl.showAll();
+}
+</code></pre>
+
+<p>}</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Student.java maintained by <a href="https://github.com/Alisunset">Alisunset</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
